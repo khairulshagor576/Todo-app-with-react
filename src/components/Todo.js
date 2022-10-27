@@ -2,7 +2,11 @@ import React from 'react'
 import style from './todo.module.css'
 
 function Todo(props) {
-    const {id,title,description} = props.todo;
+    const {title,description} = props.todo;
+    const {id} = props;
+    const btnEventHandler = (id) =>{
+     props.onRemoveHandle(id);
+    }
   return (
    <article className={style.todo}>
             <div>
@@ -10,7 +14,7 @@ function Todo(props) {
                  <p>{description}</p>
             </div>
             <div>
-                 <button className={style.btn}>
+                 <button className={style.btn} onClick={()=>{btnEventHandler(id)}}>
                          <i className='fa fa-trash fa-2x'></i>   
                  </button>
             </div>

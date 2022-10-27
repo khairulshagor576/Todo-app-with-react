@@ -12,11 +12,15 @@ function Home() {
       return [...pretodos,{id:uuidv4(),todo}]
     });
   }
+  const onRemoveHandle=(id)=>{
+    const filteredTodos = todos.filter((todo)=>todo.id!==id)
+    setTodos(filteredTodos);
+  }
   return (
     <div className={style.container}>
         <h1 style={{ color:"white" }}>Todo App</h1>
         <NewTodo onHandleTodo={handleAddTodo}/>
-        <Todos todos={todos}/>
+        <Todos todos={todos} onRemoveHandle={onRemoveHandle}/>
     </div>
   )
 }

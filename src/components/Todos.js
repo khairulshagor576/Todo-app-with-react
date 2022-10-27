@@ -8,7 +8,7 @@ function Todos(props) {
   return (
     <section className={style.todos}>
         {
-         props.todos.map((todo)=><Todo key={todo.id} todo={todo.todo}/>)
+         props.todos.map((todo)=><Todo key={todo.id} todo={todo.todo} id={todo.id} onRemoveHandle={props.onRemoveHandle}/>)
         }
     </section>
   )
